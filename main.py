@@ -1,59 +1,21 @@
 from flask import Flask, request, redirect, render_template
 import cgi
+import os
+import jinja2
+
+template_dir = os.path.join(os.path.dirname(__file__), 'templates')
+#tells where to look for the template
+
+jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir))
+#initialize the jinja templating engine using the template directory
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
-form = """
-<!doctype html>
-<html>
-    <body>
-    <h1>Signup
-    </h1>
-        <form action= "user-signup" method = "post">
-            <table>
-                <tr>
-                    <td>
-                        <label>Username:</label>
-                    </td>
-                    <td>
-                        <input name = "username" type "text"/>
-                    </td> 
-                </tr>
-                <tr>
-                    <td>
-                        <label>Password:</label>
-                    </td>
-                    <td>
-                        <input name = "user-password" type = "password"/>
-                    <td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>Verify Password:</label>
-                    </td>
-                    <td>
-                        <input name = "verify-password" type = "password"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>Email Address:</label>
-                    </td>
-                    <td>
-                        <input name = user-email" type = "email"/>
-                    </td>
-                </tr>
-            </table>
-            <input type = "submit"/>
-        </form>
-    </body>
-</html>
-"""
-
 @app.route("/")
 def index():
-    return form
+    template = jinja_env.get_template('form.html')
+    return template.render()
 
 @app.route("/user-signup", methods = ['POST'])
 def username():
