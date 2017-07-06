@@ -3,7 +3,7 @@
     <body>
     <h1>Signup
     </h1>
-        <form action= "welcome" method = "post">
+        <form action= "user-signup" method = "post">
             <table>
                 <tr>
                     <td>
@@ -14,9 +14,7 @@
                     </td> 
                     <td>
                         {% if username|length == 0 %}
-                        <p>No username yet </p>
-                        {%else%}
-                        <p> something should be here {{ username }}</p>
+                        <p>No username yet</p>
                         {% endif %}
                     </td>
                 </tr>
