@@ -3,29 +3,24 @@
     <body>
     <h1>Signup
     </h1>
-        <form action= "welcome" method = "post">
+        <form action= "/" method = "post">
             <table>
                 <tr>
                     <td>
                         <label>Username:</label>
                     </td>
                     <td>
-                        <input name = "username" type "text"/>
+                        <input name = "username1" type "text" value = "{{username1}}"/>
+                        <p class ="username_error">{{username_error}}</p>
                     </td> 
-                    <td>
-                        {% if username|length == 0 %}
-                        <p>No username yet </p>
-                        {%else%}
-                        <p> something should be here {{ username }}</p>
-                        {% endif %}
-                    </td>
                 </tr>
                 <tr>
                     <td>
                         <label>Password:</label>
                     </td>
                     <td>
-                        <input name = "user-password" type = "password"/>
+                        <input name = "verify_password" type = "password" value = "{{verify_password1}}"/>
+                        <p class = "password_error1">{{password_error1}}</p>
                     <td>
                 </tr>
                 <tr>
@@ -33,7 +28,8 @@
                         <label>Verify Password:</label>
                     </td>
                     <td>
-                        <input name = "verify-password" type = "password"/>
+                        <input name = "verify_password" type = "password" value "{{verify_password2}}"/>
+                        <p class = "password_error2"> {{password_error2}}</p>
                     </td>
                 </tr>
                 <tr>
@@ -41,14 +37,13 @@
                         <label>Email Address:</label>
                     </td>
                     <td>
-                        <input name = user-email" type = "email"/>
+                        <input name = "user-email" type = "text" value "{{e_address}}"/>
+                        <p class = "email_error"> {{email_error}}</p>
                     </td>
                 </tr>
             </table>
             <input type = "submit"/>
         </form>
-
-
-
     </body>
 </html>
+
