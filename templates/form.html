@@ -3,7 +3,7 @@
     <body>
     <h1>Signup
     </h1>
-        <form action= "/" method = "post">
+        <form action="/user_signup" method="post">
             <table>
                 <tr>
                     <td>
@@ -19,7 +19,7 @@
                         <label>Password:</label>
                     </td>
                     <td>
-                        <input name = "verify_password" type = "password" value = "{{verify_password1}}"/>
+                        <input name = "verify_password1" type = "password" value = "{{verify_password1}}"/>
                         <p class = "password_error1">{{password_error1}}</p>
                     <td>
                 </tr>
@@ -28,7 +28,7 @@
                         <label>Verify Password:</label>
                     </td>
                     <td>
-                        <input name = "verify_password" type = "password" value "{{verify_password2}}"/>
+                        <input name = "verify_password2" type = "password" value "{{verify_password2}}"/>
                         <p class = "password_error2"> {{password_error2}}</p>
                     </td>
                 </tr>
