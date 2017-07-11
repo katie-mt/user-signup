@@ -34,11 +34,16 @@ def validate_form():
     if verify_password1 != verify_password2:
         password_error2 = 'Passwords do not match.  Please re-enter your password'
 
-    if '@' not in e_address or '.' not in e_address or ' ' not in e_address:
+    if '@' not in e_address or '.' not in e_address or ' ' in e_address:
         email_error = 'Please enter a valid email address'
-    if username_error != "" or password_error1 != "" or password_error2 != "" or email_error != "":
-        return render_template('/form.html', username_error=username_error, password_error1=password_error1, password_error2=password_error2, email_error=email_error)
-    return render_template('welcome.html', username1=username1)
+    else:
+        pass
+
+    if username_error != "" or password_error1 != "" or password_error2 != "":
+        return render_template('form.html', username_error=username_error, password_error1=password_error1, password_error2=password_error2, email_error=email_error, username1=username1)
+    
+    else:
+        return render_template('/welcome.html', username1=username1)
 
 
 app.run()
